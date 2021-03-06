@@ -1,6 +1,3 @@
-# A Blog Website
-### Created using Reactjs and django
+### Backend using Django Framework of Python
 
-**Note: The Project is still ongoing.**
-
-
+I have created APIs using Django to serve the frontend.
