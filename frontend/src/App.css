@@ -1,4 +1,9 @@
-.App {
+body{
+  background:rgb(142, 183, 190);
+  font-family: 'Shippori Mincho B1', serif;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -1,0 +1,20 @@
+.postsBody {
+    display: flex;
+    justify-content: space-between;
+    width:95%;
+}
+
+
+.mainArea { 
+    width:72%;
+    margin-top: 10px;
+    margin-left: 15px;
+    background-color: rgb(236, 229, 245);
+
+}
+
+.sideBar {
+    width:25%;
+    margin-top: 10px;
+    background-color: rgb(158, 226, 215);
+}

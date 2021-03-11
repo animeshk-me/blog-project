@@ -1,0 +1,31 @@
+.articleBody {
+    width:72%;
+    margin-top: 10px;
+    margin-left: 15px;
+    background-color: rgb(236, 229, 245);
+}
+
+
+.articleBody h1{
+    /* font-family: 'Arvo'; */
+    font-style: oblique;
+    font-size: 42px;
+    text-align: center;
+}
+
+.articleBody span{
+    margin-left: 5%;
+    font-weight: 300;
+    font-style: italic  ;
+}
+
+.articleBody p{
+    background-color:rgba(240, 223, 255, 0.897);
+    /* width:105%; */
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Arvo' sans-serif;
+    font-size: 21px;
+    /* font-weight:200; */
+    word-spacing: 5px;
+}

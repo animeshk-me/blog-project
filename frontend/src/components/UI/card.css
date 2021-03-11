@@ -1,0 +1,9 @@
+.card {
+    color:seashell;
+    border-radius: 50px;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 10px;
+    align-content: center;
+    background-color:rgb(47, 20, 28);
+}
