@@ -1,8 +1,8 @@
 import React from 'react'
-import './mainpost.css'
+import './Article.css'
 
 
-function MainPost(props) {
+function Article(props) {
     const likeHandler = () => {
         alert("liked")
     }
@@ -32,4 +32,4 @@ function MainPost(props) {
     )
 }
 
-export default MainPost
+export default Article

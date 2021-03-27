@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './navbar.css';
+import './Navbar.css';
 
 function Navbar() {
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(e.targaet.value);
+        console.log(e.target.value);
         alert("Searched")
     };
     return (

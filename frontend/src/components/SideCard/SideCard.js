@@ -1,7 +1,5 @@
 import React from 'react';
-import './sidecard.css';
-import ReadMoreReact from 'read-more-react';
-
+import './SideCard.css';
 
 function SideCard(props) {
     return (

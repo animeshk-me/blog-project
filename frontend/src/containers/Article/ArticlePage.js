@@ -1,15 +1,14 @@
 import React from 'react'
 import SideCard from '../../components/UI/sidecard';
-import MainPost from './mainpost'
-import './posts.css'
-// import Card from '../components/UI/card'
+import Article from './Article'
+import './ArticlePage.css'
 
-function Posts(props) {
+function ArticlePage(props) {
     const url = "https://jsonplaceholder.typicode.com/posts/";
 
     return (
         <section className="postsBody">
-            <MainPost 
+            <Article 
                 title='Some random title'
                 author='Dr. Shamukh'
                 timestamp='Friday'
@@ -31,4 +30,4 @@ function Posts(props) {
     )
 }
 
-export default Posts;
+export default ArticlePage;

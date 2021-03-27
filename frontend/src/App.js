@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Home from './containers/home';
-import Contact from './containers/contact';
-import Posts from './containers/posts/posts';
 
-import Navbar from './components/navbar';
-import Card from './components/UI/card';
+import Home from './containers/Home/Home'
+import Contact from './containers/Contact/Contact'
+import ArticleList from './containers/ArticleList/ArticleList'
+
+import Navbar from './components/Navbar/Navbar'
+import Card from './components/Card/Card'
+
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
@@ -18,7 +19,7 @@ function App() {
         <Card>Hi </Card>
         <Route path='/' exact component={Home} />
         <Route path='/contact' exact component={Contact} />
-        <Route path='/posts' exact component={Posts} />
+        <Route path='/articles' exact component={ArticleList} />
         {/* <Home/> */}
       </div>
     </Router>
