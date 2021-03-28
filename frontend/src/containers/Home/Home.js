@@ -17,8 +17,8 @@ function Home() {
 
     const articles = Articles
         .map((article) => 
-            <NavLink to={"articles/"+article.id}>
-                <MainCard key={article.id} article={article}/>
+            <NavLink key={article.id} to={"articles/"+article.id}>
+                <MainCard article={article}/>
             </NavLink>
         );
 

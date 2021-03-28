@@ -13,9 +13,9 @@ function Article(props) {
     
     return (
         <div className="articleBody">
-            <h1>{props.title}</h1>
-            <span>by {props.author} on {props.timestamp} </span>
-            <p>{props.content}</p>
+            <h1>{props.article.title}</h1>
+            <span>by {props.article.author} on {props.article.timestamp} </span>
+            <p>{props.article.content}</p>
             <img 
                 src={require('../../assets/icons/likeicon.png').default} 
                 alt="like img not found"
