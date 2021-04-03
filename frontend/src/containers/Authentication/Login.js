@@ -34,7 +34,7 @@ export default function Login(props) {
                 axiosInstance.defaults.headers['Authorization'] = 
                     'JWT ' + localStorage.getItem('access_token');
                 console.log(res.data);
-                props.handleRefresh(true);
+                props.handleRefresh();
                 history.push('/');
             })
             .catch((error) => console.log(error));

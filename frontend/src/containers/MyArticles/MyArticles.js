@@ -30,6 +30,9 @@ function MyArticles() {
         <div className='home'>
             <Card> My Article Page </Card>
             {articles}
+            <NavLink to="my-articles/new">
+                    <button className="editbtn">Add New Article</button>
+            </NavLink>
         </div>
     )
 }

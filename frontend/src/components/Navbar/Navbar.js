@@ -8,29 +8,44 @@ import './Navbar.css';
 
 function Navbar(props) {
     const history = useHistory();
+    const [loginData, setLoginData] = useState('');
+    const loggedInStatus = localStorage.getItem('auth_status');
+    console.log("lol wa");
+    useEffect(() => {
+        if(loggedInStatus === 'logged_in') {
+            axiosInstance.get('api/current-user/')
+            .then((response) => {
+                console.log(response.data);
+                setLoginData("Hi "+response.data.first_name)
+            })
+        }
+    }, [loggedInStatus]); 
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(e.target.value);
         alert("Searched")
     };
     const logoutHandler = () => {
-        const response = axiosInstance.post('api/logout/', {
+        axiosInstance.post('api/logout/', {
 			refresh_token: localStorage.getItem('refresh_token'),
-		});
-		localStorage.removeItem('access_token');
-		localStorage.removeItem('refresh_token');
-        localStorage.setItem('auth_status', 'logged_out');
-		axiosInstance.defaults.headers['Authorization'] = null;
-        // return <Redirect to="/" />
-		history.push('/login');
-        props.handleRefresh(true);
-        alert("Logged out successfully!!");
+		})
+        .then((res) => {
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            localStorage.setItem('auth_status', 'logged_out');
+            axiosInstance.defaults.headers['Authorization'] = null;
+            setLoginData('')
+            props.handleRefresh();
+            history.push('/');
+            alert("Logged out successfully!!");
+        })
+        .catch((error) => console.log(error))
     }
     let login_button = ('');
     let logout_button = ('');
     let register_button = ('');
     let my_articles_button = ('');
-    if (props.status === 'logged_in') {
+    if (loggedInStatus === 'logged_in') {
         logout_button = (<li><NavLink to="/" onClick={logoutHandler}>Logout</NavLink></li>)
         my_articles_button = (<li><NavLink to="/my-articles" >My Articles</NavLink></li>)
     } else {
@@ -53,7 +68,7 @@ function Navbar(props) {
                     {/* <li><NavLink to="/register">Register</NavLink></li> */}
                     {/* <li><NavLink to="/login">Login</NavLink></li> */}
                     {/* <li><NavLink to="/" onClick={logoutHandler}>Logout</NavLink></li> */}
-                    <li>{props.data}</li>
+                    <li>{loginData}</li>
                     {/* {logged_in_nav} */}
                 </ul>
                 <form className='search' onSubmit={submitHandler}>

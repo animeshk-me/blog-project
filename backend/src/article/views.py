@@ -119,6 +119,7 @@ def article_detail(request, pk):
 # @csrf_exempt
 @api_view(['GET', 'POST'])
 def user_article_list(request):
+    permission_classes = (permissions.IsAuthenticated,)
     if request.method == 'GET':
         articles = request.user.author.article_set.all()
         serializer = ArticleSerializer(articles, many=True)
@@ -127,18 +128,19 @@ def user_article_list(request):
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = ArticleSerializer(data=data)
-        serializer_data = serializer.data
-        serializer_data.author = request.user.author
         if serializer.is_valid():
+            serializer_data = serializer.validated_data
+            print("hoila", serializer_data)
+            serializer_data["author"] = request.user.author
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Basic RUD operations
 @api_view(['GET', 'PUT', 'DELETE'])
 def user_article_detail(request, pk):
-    permission_classes = (permissions.IsAuthenticated)
+    permission_classes = (permissions.IsAuthenticated,)
     try:
         article = Article.objects.get(pk=pk)
     except Article.DoesNotExist:

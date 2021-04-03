@@ -9,6 +9,7 @@ import Register from './containers/Authentication/Register'
 import Login from './containers/Authentication/Login'
 import MyArticles from './containers/MyArticles/MyArticles'
 import MyArticleEdit from './containers/MyArticles/MyArticleEdit'
+import MyArticleCreate from './containers/MyArticles/MyArticleCreate'
 
 import Navbar from './components/Navbar/Navbar'
 import Card from './components/Card/Card'
@@ -19,27 +20,29 @@ import axiosInstance from './axios';
 
 function App() {
   const [refresh, setRefresh] = useState(false);
-  const [loginData, setLoginData] = useState('XD');
-  const loggedInStatus = localStorage.getItem('auth_status');
-    console.log("lol wa");
-    useEffect(() => {
-        if(loggedInStatus === 'logged_in') {
-            axiosInstance.get('api/current-user/')
-            .then((response) => {
-                console.log(response.data);
-                setLoginData("Hi "+response.data.first_name)
-            })
-        }
-    }, [loggedInStatus]);
+  // const [loginData, setLoginData] = useState('XD');
+  // const loggedInStatus = localStorage.getItem('auth_status');
+  //   console.log("lol wa");
+  //   useEffect(() => {
+  //       if(loggedInStatus === 'logged_in') {
+  //           axiosInstance.get('api/current-user/')
+  //           .then((response) => {
+  //               console.log(response.data);
+  //               setLoginData("Hi "+response.data.first_name)
+  //           })
+  //       }
+  //   }, [loggedInStatus]); 
 
-  const handleRefresh = (value) => {
-    setRefresh(value)
+  const handleRefresh = () => {
+    console.log('exec');
+    setRefresh(!(refresh));
   }
+
   console.log("goo app");
   return (
     <Router>
       <div className="App">
-        <Navbar data={loginData} status={loggedInStatus} handleRefresh={handleRefresh} />
+        <Navbar handleRefresh={handleRefresh} />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/contact' exact component={Contact} />
@@ -47,6 +50,7 @@ function App() {
           <Route path='/register' exact component={Register} />
           <Route path='/login' exact component={() => <Login handleRefresh={handleRefresh} />}/>
           <Route path='/my-articles' exact component={MyArticles} />
+          <Route path='/my-articles/new' exact component={MyArticleCreate} />
           <Route path='/my-articles/:id' exact component={MyArticleEdit} />
         </Switch>
       </div>
