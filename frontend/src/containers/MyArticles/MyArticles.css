@@ -1,0 +1,19 @@
+.editbtn {
+    background-color: #b91616;
+    color: rgb(249, 250, 251);
+    font-size: medium;
+    /* margin-top: 3%; */
+    padding: 3px 3px;
+    /* margin: 8px 0; */
+    border: none;
+    cursor: pointer;
+    width: 5%;
+    opacity: 0.9;
+  }
+
+.editbtn:focus{
+    outline: none;
+    opacity: 1.1;
+    /* border-radius: 50px; */
+    background-color: #850c0c;
+}

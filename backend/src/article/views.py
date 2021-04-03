@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Article
 
-from rest_framework import status
+from rest_framework import status, permissions
 from django.contrib import messages
 
 from rest_framework.parsers import JSONParser
@@ -68,6 +68,9 @@ from .serializers import ArticleSerializer
 #     return render(request, 'blogtemp/article_delete.html', my_context)
 
 
+#***************************** Allowed to all ************************************#
+
+
 # @csrf_exempt
 @api_view(['GET', 'POST'])
 def article_list(request):
@@ -88,6 +91,54 @@ def article_list(request):
 # Basic RUD operations
 @api_view(['GET', 'PUT', 'DELETE'])
 def article_detail(request, pk):
+    try:
+        article = Article.objects.get(pk=pk)
+    except Article.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':         # retrieve
+        serializer = ArticleSerializer(article)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':        # update
+        data = JSONParser().parse(request) 
+        serializer = ArticleSerializer(article, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':  # delete
+        article.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+
+#*********************************************************************************#
+
+#**************************** Only for current user ******************************#
+# @csrf_exempt
+@api_view(['GET', 'POST'])
+def user_article_list(request):
+    if request.method == 'GET':
+        articles = request.user.author.article_set.all()
+        serializer = ArticleSerializer(articles, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = ArticleSerializer(data=data)
+        serializer_data = serializer.data
+        serializer_data.author = request.user.author
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Basic RUD operations
+@api_view(['GET', 'PUT', 'DELETE'])
+def user_article_detail(request, pk):
+    permission_classes = (permissions.IsAuthenticated)
     try:
         article = Article.objects.get(pk=pk)
     except Article.DoesNotExist:

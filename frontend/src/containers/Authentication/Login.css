@@ -1,0 +1,61 @@
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+    background-color: rgb(98, 153, 167);
+    width: 50%;
+    margin: 2% 10% 25% 25%;
+    align-content: center;
+    text-align: center;
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 60%;
+  /* margin-left: 20px; */
+  padding: 15px;
+  /* margin: 5px 0 22px 0; */
+  display: inline-flexbox;
+  border: none;
+  background: #c2acf6;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  color: black;
+  background-color: rgb(240, 186, 136);
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: none;
+  /* border: 1px solid #f1f1f1; */
+  margin-bottom: 5px;
+}
+
+/* Set a style for the submit/register button */
+.loginbtn {
+  background-color: #86cf42;
+  border-radius: 20%;
+  color: rgb(40, 84, 124);
+  font-size: medium;
+  margin-top: 3%;
+  padding: 16px 20px;
+  /* margin: 8px 0; */
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+.loginbtn:hover {
+  opacity:1;
+}
+
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f5b4b4;
+  text-align: center;
+}

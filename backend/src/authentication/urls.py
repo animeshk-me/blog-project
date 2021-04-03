@@ -1,14 +1,21 @@
 from django.urls import path
-from rest_framework_jwt.views import obtain_jwt_token
-# from .models import Article
-# from .views import (
-    # article_list,
-    # article_detail
-# )
+from .views import (
+    current_user_view,
+    UserRegister,
+    BlacklistTokenView
+)
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 app_name = 'authentication'
 
 urlpatterns = [
-    path('', obtain_jwt_token),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'), # LOGIN
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), # get refresh token
+    path('current-user/', current_user_view, name='current_user'), # get current user data
+    path('register-user/', UserRegister.as_view(), name='register_user'), # register new user
+    path('logout/', BlacklistTokenView.as_view(), name='logout_blacklist'), #logout the user
     # path('<int:pk>/', article_detail),
 ]
