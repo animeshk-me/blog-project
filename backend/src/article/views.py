@@ -130,9 +130,13 @@ def user_article_list(request):
         serializer = ArticleSerializer(data=data)
         if serializer.is_valid():
             serializer_data = serializer.validated_data
-            print("hoila", serializer_data)
-            serializer_data["author"] = request.user.author
-            serializer.save()
+            print(serializer_data)
+            instance = Article.objects.create(
+                title=serializer_data['title'],
+                author=request.user.author,
+                content=serializer_data['content']
+            )
+            instance.save()
             return Response(serializer_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

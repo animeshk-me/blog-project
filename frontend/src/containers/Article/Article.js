@@ -10,12 +10,15 @@ function Article(props) {
     const dislikeHandler = () => {
         alert("disliked")
     }
+
+    const contentWithNewLine = String(props.article.content).split('\n')
+                        .map((str) => <p>{str}</p>)
     
     return (
         <div className="articleBody">
             <h1>{props.article.title}</h1>
             <span>by {props.article.author} on {props.article.timestamp} </span>
-            <p>{props.article.content}</p>
+            {contentWithNewLine}
             <img 
                 src={require('../../assets/icons/likeicon.png').default} 
                 alt="like img not found"

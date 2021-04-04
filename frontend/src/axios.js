@@ -53,7 +53,7 @@ axiosInstance.interceptors.response.use(
 						const response = await axiosInstance
 							.post('/api/token/refresh/', { refresh: refreshToken });
 						localStorage.setItem('access_token', response.data.access);
-						localStorage.setItem('refresh_token', response.data.refresh);
+						localStorage.setItem('refresh_token', refreshToken);
 
 						axiosInstance.defaults.headers['Authorization'] =
 							'JWT ' + response.data.access;
