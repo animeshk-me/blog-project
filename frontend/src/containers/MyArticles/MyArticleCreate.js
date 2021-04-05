@@ -9,13 +9,13 @@ function MyArticleCreate(props) {
   const history = useHistory();
   const initialFormData = Object.freeze({
     title: "",
-    content: ""
+    content: "",
   });
   const [formData, setFormData] = useState(initialFormData);
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value.trim(),
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -25,53 +25,55 @@ function MyArticleCreate(props) {
 
     axiosInstance
       .post("articles/user/list/", {
-          title: formData.title,
-          content: formData.content
+        title: formData.title,
+        content: formData.content,
       })
       .then((response) => {
         alert("Article Created Successfully!!");
-        history.push("/my-articles");        
+        history.push("/my-articles");
       })
       .catch((error) => console.log(error));
   };
 
   return (
-      <form noValidate>
-          <h1 style={{marginLeft: "5%"}}>New Article</h1>
-          <button style={{marginLeft:"10%", marginBottom:"1px"}} type="submit" onClick={handleSubmit} className="savebtn">
-            Save
-          </button>
-          <label htmlFor="title">
-            <b style={{marginLeft: "5%"}}>Title</b>
-          </label>
-          <br />
-          <textarea
-            value={formData.title}
-            type="text"
-            name="title"
-            cols="100"
-            rows="1"
-            onChange={handleChange}
-            id="title"
-            required
-          />
-          <br />
-          <label htmlFor="content">
-            <b  style={{marginLeft: "5%"}}>Content</b>
-          </label>
-          <br />
-          <textarea
-            value={formData.content}
-            type="text"
-            name="content"
-            cols="100"
-            rows="30"
-            onChange={handleChange}
-            id="content"
-            required
-            />
-          <br />
-      </form>
+    <form noValidate>
+      <h1 style={{ marginLeft: "5%" }}>New Article</h1>
+      <div className="div_save">
+        <div type="submit" onClick={handleSubmit} className="button_add">
+          Save
+        </div>
+      </div>
+      <label htmlFor="title">
+        <b style={{ marginLeft: "5%" }}>Title</b>
+      </label>
+      <br />
+      <textarea
+        value={formData.title}
+        type="text"
+        name="title"
+        cols="100"
+        rows="1"
+        onChange={handleChange}
+        id="title"
+        required
+      />
+      <br />
+      <label htmlFor="content">
+        <b style={{ marginLeft: "5%" }}>Content</b>
+      </label>
+      <br />
+      <textarea
+        value={formData.content}
+        type="text"
+        name="content"
+        cols="100"
+        rows="30"
+        onChange={handleChange}
+        id="content"
+        required
+      />
+      <br />
+    </form>
   );
 }
 

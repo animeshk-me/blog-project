@@ -1,63 +1,69 @@
-.postsBody {
-    display: flex;
-    justify-content: space-between;
-    width:95%;
-}
-
-
-.mainArea { 
-    width:72%;
-    margin-top: 10px;
-    margin-left: 15px;
-    background-color: rgb(236, 229, 245);
-
-}
-
-.sideBar {
-    width:25%;
-    margin-top: 10px;
-    background-color: rgb(158, 226, 215);
-}
 
 textarea {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 10%;
-    border-radius: 10px;
-    outline: blueviolet;
-    font-size: 15px;
-    color: black;
-    resize: none;
-    border-width: 1px;
-    background-color: rgb(231, 190, 128);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 10%;
+  border-radius: 10px;
+  outline: blueviolet;
+  font-size: 15px;
+  color: black;
+  resize: none;
+  border-width: 1px;
+  background-color: rgb(231, 190, 128);
 }
 
 textarea:focus {
-    background-color: rgb(231, 216, 129);
-    resize: none;
-    border-width: 2px;
-    border-color: blueviolet;
+  background-color: rgb(231, 216, 129);
+  resize: none;
+  border-width: 2px;
+  border-color: blueviolet;
 }
 
-.savebtn {
-    background-color: #b91616;
-    color: rgb(249, 250, 251);
-    border-radius: 5px;
+.button_add_edit {
+  margin-bottom: 15px;
+  margin-left: 20px;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.div_save_edit {
+  border-radius: 10px;
+  display: block;
+  height: 30px;
+  width: 12%;
+  margin-left: 40%;
+  margin-bottom: 4px;
+  /* float:right; */
+  color: blanchedalmond;
+  background-color: rgb(21, 138, 76);
+}
+
+.div_save_edit:hover {
+  background-color: rgb(30, 190, 105);
+}
+.div_save_edit:focus {
+  background-color: rgb(11, 92, 49);
+}
+
+
+.button_delete {
+    margin-bottom: 15px;
+    margin-left: 20px;
     font-size: 20px;
-    /* margin-top: 3%; */
-    padding: 3px 3px;
-    float: right;
-    margin-right: 20%;
-    margin-bottom: 5%;
-    /* margin: 8px 0; */
-    border: none;
-    cursor: pointer;
-    width: 15%;
-    opacity: 0.9;
+    margin-right: 20px;
   }
-
-.savebtn:focus{
-    outline: none;
-    opacity: 1.1;
-    /* border-radius: 50px; */
-    background-color: #850c0c;
-}
+  
+  .div_delete{
+    border-radius: 10px;
+    display: block;
+    height: 30px;
+    width: 13%;
+    margin-left: 40%;
+    margin-bottom: 4px;
+    /* float:right; */
+    color: blanchedalmond;
+    background-color: rgb(240, 14, 14);
+  }
+  
+  .div_delete:hover {
+    background-color: rgb(128, 5, 5);
+  }

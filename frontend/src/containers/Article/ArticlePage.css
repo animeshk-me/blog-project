@@ -1,7 +1,7 @@
 .postsBody {
     display: flex;
     justify-content: space-between;
-    width:95%;
+    /* width:95%; */
 }
 
 
@@ -15,8 +15,9 @@
 
 .sideBar {
     width:25%;
+    margin-right: 10px;
     margin-top: 10px;
-    background-color: rgb(158, 226, 215);
+    background-color: rgb(28, 61, 56);
 }
 
 .navlink_sidecard {

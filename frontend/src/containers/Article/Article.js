@@ -2,18 +2,9 @@ import React from "react";
 import "./Article.css";
 
 function Article(props) {
-  const likeHandler = () => {
-    alert("liked");
-  };
-
-  const dislikeHandler = () => {
-    alert("disliked");
-  };
-
   const contentWithNewLine = String(props.article.content)
     .split("\n")
     .map((str) => <p>{str}</p>);
-    // const date = [2,2,3];
   const date = String(props.article.timestamp).substring(0, 10).split("-");
 
   return (
@@ -23,7 +14,7 @@ function Article(props) {
         <b style={{fontSize:"19px"}}> {props.article.author}</b>   wrote on {date[2]+'/'+date[1]+'/'+date[0]}{" "}
       </span>
       {contentWithNewLine}
-      <img
+      {/* <img
         src={require("../../assets/icons/likeicon.png").default}
         alt="like img not found"
         style={{ marginLeft: "40%", marginTop: "5%" }}
@@ -34,7 +25,7 @@ function Article(props) {
         alt="dislike img not found"
         style={{ marginLeft: "10%", marginTop: "5%" }}
         onClick={dislikeHandler}
-      />
+      /> */}
     </div>
   );
 }

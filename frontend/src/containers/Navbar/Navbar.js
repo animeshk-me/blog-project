@@ -41,6 +41,7 @@ function Navbar(props) {
   let logout_button = "";
   let register_button = "";
   let my_articles_button = "";
+  let new_article_button = "";
   if (loggedInStatus === "logged_in") {
     logout_button = (
       <li>
@@ -54,6 +55,11 @@ function Navbar(props) {
         <NavLink to="/my-articles">My Articles</NavLink>
       </li>
     );
+    new_article_button = (
+      <li>
+        <NavLink to="/my-articles/new">Write</NavLink>
+      </li>
+    )
   } else {
     login_button = (
       <li>
@@ -73,19 +79,17 @@ function Navbar(props) {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          {login_button}
+          {register_button}
+          {my_articles_button}
+          {new_article_button}
           <li>
             <NavLink to="/contact">Contact us</NavLink>
           </li>
           <li>
-            <NavLink to="/posts">Posts</NavLink>
-          </li>
-          <li>
             <NavLink to="/about">About Us</NavLink>
           </li>
-          {login_button}
-          {register_button}
           {logout_button}
-          {my_articles_button}
           <li className="li_login"><div className="div_login">{loginData}</div></li>
           {/* {logged_in_nav} */}
         </ul>

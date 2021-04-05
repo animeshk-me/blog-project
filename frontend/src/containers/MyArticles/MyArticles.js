@@ -19,20 +19,21 @@ function MyArticles() {
     const articles = Articles
         .map((article) => 
             <div key={article.id}>
-                <MainCard article={article} />
-                <NavLink to={"my-articles/"+article.id}>
-                    <button className="editbtn">Edit</button>
+                <NavLink to={"my-articles/"+article.id} className="my_articles_link">
+                    <MainCard article={article} />
                 </NavLink>
             </div>
         );
     
     return (
-        <div className='home'>
-            <Card> My Article Page </Card>
-            {articles}
-            <NavLink to="my-articles/new">
-                    <button className="editbtn">Add New Article</button>
+        <div className='my_articles_home'>
+            <h1 style={{marginLeft:"40%"}}>My Articles</h1>
+            <NavLink to="my-articles/new" className="link_add">
+                <div className="div_add">
+                  Add New Article
+                </div>
             </NavLink>
+            {articles}
         </div>
     )
 }

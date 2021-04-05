@@ -33,11 +33,15 @@ export default function Login(props) {
         localStorage.setItem("auth_status", "logged_in");
         axiosInstance.defaults.headers["Authorization"] =
           "JWT " + localStorage.getItem("access_token");
+        alert(formData.username+" successfully logged in!!");
         console.log(res.data);
         props.handleRefresh();
         history.push("/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Bad Credentials!!");
+      });
   };
   return (
     <form noValidate>

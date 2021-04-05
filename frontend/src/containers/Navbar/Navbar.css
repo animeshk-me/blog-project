@@ -1,15 +1,12 @@
 .navbar {
   border: purple;
-  border-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
   justify-content: space-between;
   display: flex;
-  margin-top: 15px;
-  margin-left: 10px;
   align-content: center;
-  /* padding-top: 10px; */
   height: 60px;
-  width: 95%;
-  background-color: rgb(65, 101, 199);
+  background-color: rgb(22, 40, 73);
 }
 
 .navbarMenu {
