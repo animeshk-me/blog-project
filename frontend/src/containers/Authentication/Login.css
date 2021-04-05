@@ -11,17 +11,20 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] { */
+.login_form {
   width: 60%;
   /* margin-left: 20px; */
   padding: 15px;
+  border-radius: 10px;
   /* margin: 5px 0 22px 0; */
   display: inline-flexbox;
   border: none;
   background: #c2acf6;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+/* input[type=text]:focus, input[type=password]:focus { */
+.login_form:focus {
   color: black;
   background-color: rgb(240, 186, 136);
   outline: none;
@@ -37,11 +40,12 @@ hr {
 /* Set a style for the submit/register button */
 .loginbtn {
   background-color: #86cf42;
-  border-radius: 20%;
+  border-radius: 10px;
   color: rgb(40, 84, 124);
-  font-size: medium;
+  font-size: 20px;
   margin-top: 3%;
-  padding: 16px 20px;
+  padding: 16px;
+  height: 60px;
   /* margin: 8px 0; */
   border: none;
   cursor: pointer;

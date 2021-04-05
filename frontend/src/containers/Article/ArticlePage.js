@@ -23,11 +23,13 @@ function ArticlePage(props) {
       .catch((error) => console.log(error));
     axios
       .get(url)
-      .then((response) => setSideArticleList(response.data))
+      .then((response) => {
+        setSideArticleList(response.data.filter(item => item.id != id).slice(0, 5));
+      })
       .catch((error) => console.log(error));
   }, [url, id]);
   const SideArticles = SideArticleList.map((article) =>
-        <NavLink key={article.id} exact to={"/articles/"+article.id}>
+        <NavLink key={article.id} exact to={"/articles/"+article.id} className="navlink_sidecard">
             <SideCard
                 title={article.title}
                 author={article.author}

@@ -3,22 +3,39 @@
     border-radius: 10px;
     justify-content: space-between;
     margin-top: 10px;
+    text-decoration: none;
     background-color:rgba(240, 228, 245, 0.897);
     margin-left: 10px;
     margin-right: 10px;
+    height: 200px;
+    max-height: 300px;
     align-content: center;
 }
 
-.title{
+.sideCard:hover {
+    background-color:rgba(194, 224, 137, 0.897);
+}
+
+.sideCard:active {
+    background-color:rgba(93, 206, 89, 0.897);
+}
+
+.title_sideCard{
     font-weight: 700;
     font-family: 'Arvo' sans-serif;
-    font-size: 40px;
+    font-size: 20px;
     text-align: left;
     padding-left:2%
 }
 
-.author{
+.author_sideCard{
     margin-left: 3%;
+    text-decoration: none;
     font-size: 13px;
     font-style: italic;  ;
+}
+
+.content_sideCard {
+    padding: 5px;
+    margin-bottom: 10px;
 }

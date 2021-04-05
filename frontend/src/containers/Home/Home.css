@@ -1,3 +1,29 @@
-.Home{
-    
+.search {
+  border: 2px solid rgb(93, 187, 49);
+  border-radius: 100px;
+  border-width: thick;
+  font-size:14px;
+  display: block;
+  /* float: right; */
+  height:50px;
+  width:25%;
+  background-color: rgba(231, 179, 148, 0.856);
+  background-image: url("../../assets/icons/searchicon.webp");
+  background-position: 5px 5px;
+  margin-top: 10px;
+  padding-left: 50px;
+  margin-left: 5%;
+  background-repeat: no-repeat;
+  /* padding: 10px 30px 12px 40px; */
+}
+
+.search:focus {
+  outline: none;
+  background-color: rgb(231, 179, 148);
+}
+
+.navlink_home {
+    display: inline;
+    text-decoration: none;
+    width: 40%;
 }

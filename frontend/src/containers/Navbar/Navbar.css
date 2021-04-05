@@ -1,0 +1,56 @@
+.navbar {
+  border: purple;
+  border-radius: 100px;
+  justify-content: space-between;
+  display: flex;
+  margin-top: 15px;
+  margin-left: 10px;
+  align-content: center;
+  /* padding-top: 10px; */
+  height: 60px;
+  width: 95%;
+  background-color: rgb(65, 101, 199);
+}
+
+.navbarMenu {
+  width: 90%;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.navbarMenu a {
+  height: 30px;
+  float: left;
+  display: inline;
+  text-decoration: none;
+  padding-bottom: 3px;
+  padding-left: 13px;
+  padding-right: 13px;
+  font-size: large;
+  color: rgb(236, 222, 25);
+}
+
+.navbarMenu a:hover {
+  color: rgba(180, 236, 25, 0.781);
+  background-color: rgba(35, 50, 184, 0.856);
+}
+
+.navbarMenu a:active {
+  color: rgba(208, 255, 79, 0.918);
+  background-color: rgba(35, 50, 184, 0.507);
+}
+
+.div_login {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.li_login {
+  border-radius: 10px;
+  height: 30px;
+  max-width: 40%;
+  float:right;
+  color: blanchedalmond;
+  background-color: rgb(21, 138, 76);
+}

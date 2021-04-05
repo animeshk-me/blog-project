@@ -7,8 +7,8 @@ class Article(models.Model):
     # author = models.TextField(blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     content = models.TextField(blank=False, null=False)
-    # likes = models.IntegerField(default=0, null=False)
-    # dislikes = models.IntegerField(default=0, null=False)
+    likes = models.IntegerField(default=0, null=False)
+    dislikes = models.IntegerField(default=0, null=False)
 
     def __str__(self):
         return self.title

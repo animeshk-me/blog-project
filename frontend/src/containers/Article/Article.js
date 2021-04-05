@@ -1,38 +1,42 @@
-import React from 'react'
-import './Article.css'
-
+import React from "react";
+import "./Article.css";
 
 function Article(props) {
-    const likeHandler = () => {
-        alert("liked")
-    }
+  const likeHandler = () => {
+    alert("liked");
+  };
 
-    const dislikeHandler = () => {
-        alert("disliked")
-    }
+  const dislikeHandler = () => {
+    alert("disliked");
+  };
 
-    const contentWithNewLine = String(props.article.content).split('\n')
-                        .map((str) => <p>{str}</p>)
-    
-    return (
-        <div className="articleBody">
-            <h1>{props.article.title}</h1>
-            <span>by {props.article.author} on {props.article.timestamp} </span>
-            {contentWithNewLine}
-            <img 
-                src={require('../../assets/icons/likeicon.png').default} 
-                alt="like img not found"
-                style={{marginLeft:"40%", marginTop:"5%"}} 
-                onClick={likeHandler}
-            />
-            <img 
-                src={require('../../assets/icons/dislikeicon.webp').default} 
-                alt="dislike img not found" 
-                style={{marginLeft:"10%", marginTop:"5%"}} 
-                onClick={dislikeHandler}
-            />
-        </div>
-    )
+  const contentWithNewLine = String(props.article.content)
+    .split("\n")
+    .map((str) => <p>{str}</p>);
+    // const date = [2,2,3];
+  const date = String(props.article.timestamp).substring(0, 10).split("-");
+
+  return (
+    <div className="articleBody">
+      <h1>{props.article.title}</h1>
+      <span>
+        <b style={{fontSize:"19px"}}> {props.article.author}</b>   wrote on {date[2]+'/'+date[1]+'/'+date[0]}{" "}
+      </span>
+      {contentWithNewLine}
+      <img
+        src={require("../../assets/icons/likeicon.png").default}
+        alt="like img not found"
+        style={{ marginLeft: "40%", marginTop: "5%" }}
+        onClick={likeHandler}
+      />
+      <img
+        src={require("../../assets/icons/dislikeicon.webp").default}
+        alt="dislike img not found"
+        style={{ marginLeft: "10%", marginTop: "5%" }}
+        onClick={dislikeHandler}
+      />
+    </div>
+  );
 }
 
-export default Article
+export default Article;

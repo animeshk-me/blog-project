@@ -11,7 +11,7 @@ import MyArticles from './containers/MyArticles/MyArticles'
 import MyArticleEdit from './containers/MyArticles/MyArticleEdit'
 import MyArticleCreate from './containers/MyArticles/MyArticleCreate'
 
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './containers/Navbar/Navbar'
 import Card from './components/Card/Card'
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
