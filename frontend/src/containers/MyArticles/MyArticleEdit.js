@@ -60,7 +60,7 @@ function MyArticleEdit(props) {
         history.push("/my-articles");
       })
       .catch((error) => console.log(error));
-  }
+  };
   return (
     <form noValidate>
       <h1 style={{ marginLeft: "5%" }}>Edit Article</h1>
@@ -74,36 +74,37 @@ function MyArticleEdit(props) {
           Delete Article
         </div>
       </div>
-      <label htmlFor="title">
-        <b style={{ marginLeft: "5%" }}>Title</b>
-      </label>
-      <br />
-      <textarea
-        value={formData.title}
-        type="text"
-        name="title"
-        cols="100"
-        rows="1"
-        onChange={handleChange}
-        id="title"
-        required
-      />
-      <br />
-      <label htmlFor="content">
-        <b style={{ marginLeft: "5%" }}>Content</b>
-      </label>
-      <br />
-      <textarea
-        value={formData.content}
-        type="text"
-        name="content"
-        cols="100"
-        rows="30"
-        onChange={handleChange}
-        id="content"
-        required
-      />
-      <br />
+      <section className="section_edit">
+        <label htmlFor="title">
+          <b style={{ marginLeft: "5%"}}>Title</b>
+        </label>
+        <br />
+        <textarea
+          value={formData.title}
+          type="text"
+          name="title"
+          cols="100"
+          rows="1"
+          onChange={handleChange}
+          id="title"
+          required
+        />
+        <br />
+        <label htmlFor="content">
+          <b style={{ marginLeft: "5%" }}>Content</b>
+        </label>
+        <br />
+        <textarea
+          value={formData.content}
+          type="text"
+          name="content"
+          cols="100"
+          rows="30"
+          onChange={handleChange}
+          id="content"
+          required
+        />
+      </section>
     </form>
   );
 }

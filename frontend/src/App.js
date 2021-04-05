@@ -3,7 +3,7 @@ import './App.css';
 
 import Home from './containers/Home/Home'
 import Contact from './containers/Contact/Contact'
-// import ArticleList from './containers/ArticleList/ArticleList'
+import About from './containers/About/About'
 import ArticlePage from './containers/Article/ArticlePage'
 import Register from './containers/Authentication/Register'
 import Login from './containers/Authentication/Login'
@@ -12,26 +12,14 @@ import MyArticleEdit from './containers/MyArticles/MyArticleEdit'
 import MyArticleCreate from './containers/MyArticles/MyArticleCreate'
 
 import Navbar from './containers/Navbar/Navbar'
-import Card from './components/Card/Card'
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {useState, useEffect} from 'react'
 import axiosInstance from './axios';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [refresh, setRefresh] = useState(false);
-  // const [loginData, setLoginData] = useState('XD');
-  // const loggedInStatus = localStorage.getItem('auth_status');
-  //   console.log("lol wa");
-  //   useEffect(() => {
-  //       if(loggedInStatus === 'logged_in') {
-  //           axiosInstance.get('api/current-user/')
-  //           .then((response) => {
-  //               console.log(response.data);
-  //               setLoginData("Hi "+response.data.first_name)
-  //           })
-  //       }
-  //   }, [loggedInStatus]); 
 
   const handleRefresh = () => {
     console.log('exec');
@@ -46,6 +34,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/contact' exact component={Contact} />
+          <Route path='/about' exact component={About} />
           <Route path='/articles/:id' exact component={ArticlePage} />
           <Route path='/register' exact component={Register} />
           <Route path='/login' exact component={() => <Login handleRefresh={handleRefresh} />}/>
@@ -53,6 +42,7 @@ function App() {
           <Route path='/my-articles/new' exact component={MyArticleCreate} />
           <Route path='/my-articles/:id' exact component={MyArticleEdit} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

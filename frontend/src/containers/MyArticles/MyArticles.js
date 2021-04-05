@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import {NavLink} from 'react-router-dom'
-import Card from '../../components/Card/Card'
 import MainCard from '../../components/MainCard/MainCard'
 import axiosInstance from '../../axios'
 import './MyArticles.css'

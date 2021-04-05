@@ -1,26 +1,31 @@
-.contact_page {
+.myImage {
+    margin-left: 35%;
+    width: 300px;
+    margin-top: 10px;
+    border-radius: 20%;
+    display: inline;
+}
+
+.about_page {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
     font-size: 20px;
     margin-top: 5px;
-    padding-left: 400px;
     color:darkgrey;
     display: inline-block;
     padding: 40px;
     border-radius: 10px;
     margin-left: 5%;
-    width: 80%;
     align-content: center;
     margin-bottom: 5%;
     background-color: rgb(7, 18, 47);
 }
 
-.my_name_contact {
+.my_name_about {
     padding: 10px;
-    margin-left: 35%;
-    padding-left: 30px;
-    /* width: 80%; */
-    display: inline-block;
+    padding-left: 300px;
+    width: 60%;
+    display: inline;
     font-size: 40px;
     background-color: darkslategrey;
     color: gainsboro;
