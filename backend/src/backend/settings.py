@@ -149,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = '/static/' # all static files get collected here and django looks into it only in deployment mode
+STATIC_ROOT = BASE_DIR / "static" # all static files get collected here and django looks into it only in deployment mode
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [ # used in development mode
     BASE_DIR / "build/static",
