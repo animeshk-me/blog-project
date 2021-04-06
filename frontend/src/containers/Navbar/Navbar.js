@@ -1,20 +1,21 @@
 import React, { Fragment } from "react";
 import { useState } from "react";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useEffect } from "react";
-
+import logo_name from "./../../assets/pictures/brand_name.png"
+import logo_pic from "./../../assets/pictures/brand_pic.png"
 import axiosInstance from "../../axios";
 import "./Navbar.css";
+import { useAlert } from "react-alert";
 
 function Navbar(props) {
+  const alert = useAlert();
   const history = useHistory();
   const [loginData, setLoginData] = useState("Not Logged in");
   const loggedInStatus = localStorage.getItem("auth_status");
-  console.log("lol wa");
   useEffect(() => {
     if (loggedInStatus === "logged_in") {
       axiosInstance.get("api/current-user/").then((response) => {
-        console.log(response.data);
         setLoginData("Hi " + response.data.first_name);
       });
     }
@@ -33,7 +34,7 @@ function Navbar(props) {
         setLoginData("Not Logged in");
         props.handleRefresh();
         history.push("/");
-        alert("Logged out successfully!!");
+        alert.show("Logged out successfully!!");
       })
       .catch((error) => console.log(error));
   };
@@ -52,7 +53,7 @@ function Navbar(props) {
     );
     my_articles_button = (
       <li>
-        <NavLink to="/my-articles">My Articles</NavLink>
+        <NavLink to="/my-articles">Your Articles</NavLink>
       </li>
     );
     new_article_button = (
@@ -77,6 +78,12 @@ function Navbar(props) {
       <div className="navbar">
         <ul className="navbarMenu">
           <li>
+            <img src={logo_pic} alt="logo_pic" className="nav_img_pic"/>
+          </li>
+          <li>
+            <img src={logo_name} alt="logo_name" className="nav_img_name"/>
+          </li>
+          <li>
             <NavLink to="/">Home</NavLink>
           </li>
           {login_button}
@@ -84,10 +91,10 @@ function Navbar(props) {
           {my_articles_button}
           {new_article_button}
           <li>
-            <NavLink to="/contact">Contact us</NavLink>
+            <NavLink to="/contact">Contact me</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/about">About me</NavLink>
           </li>
           {logout_button}
           <li className="li_login"><div className="div_login">{loginData}</div></li>

@@ -1,6 +1,7 @@
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {useState} from 'react'
+
 import './App.css';
-
-
 import Home from './containers/Home/Home'
 import Contact from './containers/Contact/Contact'
 import About from './containers/About/About'
@@ -10,23 +11,18 @@ import Login from './containers/Authentication/Login'
 import MyArticles from './containers/MyArticles/MyArticles'
 import MyArticleEdit from './containers/MyArticles/MyArticleEdit'
 import MyArticleCreate from './containers/MyArticles/MyArticleCreate'
-
+import Footer from './components/Footer/Footer';
 import Navbar from './containers/Navbar/Navbar'
 
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {useState, useEffect} from 'react'
-import axiosInstance from './axios';
-import Footer from './components/Footer/Footer';
+
 
 function App() {
   const [refresh, setRefresh] = useState(false);
 
   const handleRefresh = () => {
-    console.log('exec');
     setRefresh(!(refresh));
   }
 
-  console.log("goo app");
   return (
     <Router>
       <div className="App">

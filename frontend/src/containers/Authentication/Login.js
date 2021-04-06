@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axiosInstance from "../../axios";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./Login.css";
+import { useAlert } from "react-alert";
 
 export default function Login(props) {
+  const alert = useAlert();
   const history = useHistory();
   const initialFormData = Object.freeze({
     username: "",
@@ -21,7 +23,6 @@ export default function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     axiosInstance
       .post("api/token/", {
         username: formData.username,
@@ -33,14 +34,13 @@ export default function Login(props) {
         localStorage.setItem("auth_status", "logged_in");
         axiosInstance.defaults.headers["Authorization"] =
           "JWT " + localStorage.getItem("access_token");
-        alert(formData.username+" successfully logged in!!");
-        console.log(res.data);
+        alert.show(formData.username+" successfully logged in!!");
         props.handleRefresh();
         history.push("/");
       })
       .catch((error) => {
         console.log(error);
-        alert("Bad Credentials!!");
+        alert.show("Bad Credentials!!");
       });
   };
   return (

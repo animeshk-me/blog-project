@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axiosInstance from "../../axios";
 import { useHistory, NavLink } from "react-router-dom";
 import "./Register.css";
+import { useAlert } from "react-alert";
 
 export default function Register() {
+  const alert = useAlert();
   const history = useHistory();
   const initialFormData = Object.freeze({
     username: "",
@@ -24,10 +26,12 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    if(formData.firstname === "" || formData.lastname === "") {
+      alert.show("Invalid Entry!! Try again");
+      return;
+    }
     if (formData.password1 !== formData.password2) {
-      alert("Passwords don't match!! Try again");
-      console.log("lol");
+      alert.show("Passwords don't match!! Try again");
       return;
     }
     axiosInstance
@@ -38,7 +42,12 @@ export default function Register() {
         password: formData.password1,
       })
       .then((res) => {
+        alert.show("Registered Successfully! Redirecting to login page.")
         history.push("/login");
+      })
+      .catch((error)=>{
+        console.log(error);
+        alert.show("Invalid Entry! Please try again.")
       });
   };
   return (

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { Redirect, useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./MyArticleCreate.css";
 import axiosInstance from "../../axios";
+import { useAlert } from "react-alert";
 
 function MyArticleCreate(props) {
+  const alert = useAlert();
   const history = useHistory();
   const initialFormData = Object.freeze({
     title: "",
@@ -21,18 +22,19 @@ function MyArticleCreate(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-
     axiosInstance
       .post("articles/user/list/", {
         title: formData.title,
         content: formData.content,
       })
       .then((response) => {
-        alert("Article Created Successfully!!");
+        alert.show("Article Created Successfully!!");
         history.push("/my-articles");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error)
+        alert.show("Article Could not be Created!!");
+      });
   };
 
   return (

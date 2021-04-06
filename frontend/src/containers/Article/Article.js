@@ -4,7 +4,13 @@ import "./Article.css";
 function Article(props) {
   const contentWithNewLine = String(props.article.content)
     .split("\n")
-    .map((str) => <p>{str}</p>);
+    .map((str, index) => <p key={index}>{str}</p>);
+
+  // const contentWithIndexValues = String(props.article.content)
+  //   .split("\n")
+  //   .map((str, index) => {id:index, data:str});
+
+  // const contentWithNewLine = contentWithIndexValues.map((str)=><p key={str.id} >{str}</p>)
   const date = String(props.article.timestamp).substring(0, 10).split("-");
 
   return (

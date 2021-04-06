@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Redirect, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import "./MyArticleEdit.css";
 import axiosInstance from "../../axios";
+import { useAlert } from "react-alert";
 
 function MyArticleEdit(props) {
+  const alert = useAlert();
   const history = useHistory();
   const [formData, setFormData] = useState({
     title: "",
@@ -20,10 +22,12 @@ function MyArticleEdit(props) {
           title: response.data.title,
           content: response.data.content,
         });
-        console.log(response.data);
       })
-      .catch((error) => console.log(error));
-  }, [id]);
+      .catch((error) => {
+        console.log(error);
+        alert.show("Fetching unsuccessful!!");
+      });
+  }, [id, alert]);
 
   const handleChange = (e) => {
     setFormData({
@@ -32,20 +36,15 @@ function MyArticleEdit(props) {
     });
   };
 
-  //   const redirect = () => {
-  //       history.push('/my-articles');
-  //     }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-
     axiosInstance
       .put("articles/user/" + id + "/", {
         title: formData.title,
         content: formData.content,
       })
       .then((response) => {
-        //   return <Redirect to="/my-articles" />
+        alert.show("Article Saved!");
         history.push("/my-articles");
       })
       .catch((error) => console.log(error));
@@ -56,7 +55,7 @@ function MyArticleEdit(props) {
     axiosInstance
       .delete("articles/user/" + id + "/")
       .then((response) => {
-        alert("Article Deleted Successfully!");
+        alert.show("Article Deleted Successfully!");
         history.push("/my-articles");
       })
       .catch((error) => console.log(error));
@@ -76,7 +75,7 @@ function MyArticleEdit(props) {
       </div>
       <section className="section_edit">
         <label htmlFor="title">
-          <b style={{ marginLeft: "5%"}}>Title</b>
+          <b style={{ marginLeft: "5%" }}>Title</b>
         </label>
         <br />
         <textarea

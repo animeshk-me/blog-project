@@ -18,7 +18,6 @@ function ArticlePage(props) {
       .get(url + id)
       .then((response) => {
         setMainArticle(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.log(error));
     axios

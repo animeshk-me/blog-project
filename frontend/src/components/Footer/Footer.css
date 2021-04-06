@@ -1,9 +1,33 @@
 .footer {
-    height: 10%;
-    width: 100%;
-    background-color: rgb(3, 3, 46);
-    color: darkgray;
-    position: absolute;
-    font-size: 20px;
-    padding:10px;
+  height: 10%;
+  width: 100%;
+  background-color: rgb(3, 3, 46);
+  color: darkgray;
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  padding: 10px;
 }
+
+.footer_name {
+  float: left;
+  height: 40px;
+  display: inline;
+}
+
+.footer_name:hover {
+  opacity: 0.6;
+}
+
+.footer_link {
+  color: rgba(245, 245, 245, 0.746);
+  float: right;
+  font-size: 20px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.footer_link:hover {
+    opacity: 0.6;
+}
+  
