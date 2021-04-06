@@ -19,7 +19,7 @@ function Home() {
   const articles = Articles.map((article) => (
     <NavLink
       key={article.id}
-      to={"articles/" + article.id}
+      to={"article-list/" + article.id}
       className="navlink_home"
     >
       <MainCard article={article} />

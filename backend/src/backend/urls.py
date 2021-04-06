@@ -14,13 +14,32 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from . import views
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+
+
+react_views_regex = r'\/|\b'.join([
+    'contact',
+    'about',
+    'register',
+    'login',
+]) + r'\/'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', include('article.urls')),
     path('api/', include('authentication.urls')),
-    path('', views.index, name='index')
+    path('', TemplateView.as_view(template_name="index.html"), name='index'),
+    re_path(react_views_regex, TemplateView.as_view(template_name="index.html"), name='index'),
+    path('article-list/<int:id>', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('my-articles/', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('my-articles/<int:id>', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('my-articles/new/', TemplateView.as_view(template_name="index.html"), name='index'),
+    
+    # re_path(r'^(?:*)/?$', TemplateView.as_view(template_name="index.html")),
+
+    # re_path(r'^api/students/$', views.students_list),
+    # re_path(r'^api/students/([0-9])$', views.students_detail),
+
 ]

@@ -17,7 +17,7 @@ function MyArticles() {
     const articles = Articles
         .map((article) => 
             <div key={article.id}>
-                <NavLink to={"my-articles/"+article.id} className="my_articles_link">
+                <NavLink exact to={"my-articles/"+article.id} className="my_articles_link">
                     <MainCard article={article} />
                 </NavLink>
             </div>
@@ -26,7 +26,7 @@ function MyArticles() {
     return (
         <div className='my_articles_home'>
             <h1 style={{marginLeft:"40%"}}>My Articles</h1>
-            <NavLink to="my-articles/new" className="link_add">
+            <NavLink exact to="my-articles/new" className="link_add">
                 <div className="div_add">
                   Add New Article
                 </div>

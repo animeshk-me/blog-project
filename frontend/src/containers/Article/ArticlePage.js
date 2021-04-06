@@ -28,7 +28,7 @@ function ArticlePage(props) {
       .catch((error) => console.log(error));
   }, [url, id]);
   const SideArticles = SideArticleList.map((article) =>
-        <NavLink key={article.id} exact to={"/articles/"+article.id} className="navlink_sidecard">
+        <NavLink key={article.id} exact to={"/article-list/"+article.id} className="navlink_sidecard">
             <SideCard
                 title={article.title}
                 author={article.author}
