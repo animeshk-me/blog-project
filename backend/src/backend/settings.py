@@ -31,12 +31,12 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "13.233.125.44"
+    "http://13.233.125.44"
 ]
 
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000/",
-    "13.233.125.44",
+    "http://13.233.125.44",
 )
 
 # Application definition
