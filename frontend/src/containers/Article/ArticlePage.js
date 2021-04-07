@@ -9,6 +9,7 @@ import Article from "./Article";
 import "./ArticlePage.css";
 
 function ArticlePage(props) {
+  const [isLoading, setIsloading] = useState(true);
   const [MainArticle, setMainArticle] = useState({});
   const [SideArticleList, setSideArticleList] = useState([]);
   const { id } = useParams();
@@ -19,6 +20,7 @@ function ArticlePage(props) {
       .get(url + id)
       .then((response) => {
         setMainArticle(response.data);
+        setIsloading(false);
       })
       .catch((error) => console.log(error));
     axios
@@ -39,7 +41,7 @@ function ArticlePage(props) {
       )
   return (
     <section className="postsBody">
-      <Article article={MainArticle} />
+      <Article article={MainArticle} is_loading={isLoading} />
       <div className="sideBar">
           {SideArticles}
       </div>

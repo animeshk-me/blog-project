@@ -13,6 +13,9 @@ function Article(props) {
   // const contentWithNewLine = contentWithIndexValues.map((str)=><p key={str.id} >{str}</p>)
   const date = String(props.article.timestamp).substring(0, 10).split("-");
 
+  if(props.is_loading) {
+    return (<h1>Loading...</h1>);
+  }
   return (
     <div className="articleBody">
       <h1>{props.article.title}</h1>
