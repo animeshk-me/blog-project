@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-  const baseURL = "http://0.0.0.0:8000/"; // for aws EC2 instance server(deployment)
+  const baseURL = "http://13.233.125.44:8000/"; // for aws EC2 instance server(deployment)
 // const baseURL = 'http://127.0.0.1:8000/';  // for local development server
 
 const axiosInstance = axios.create({

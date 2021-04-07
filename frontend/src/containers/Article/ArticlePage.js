@@ -13,7 +13,7 @@ function ArticlePage(props) {
   const [SideArticleList, setSideArticleList] = useState([]);
   const { id } = useParams();
   // const url = "http://127.0.0.1:8000/articles/"; // for local development server
-  const url = "http://0.0.0.0:8000/articles/";  // for aws EC2 server (deployment)
+  const url = "http://13.233.125.44:8000/articles/";  // for aws EC2 server (deployment)
   useEffect(() => {
     axios
       .get(url + id)
