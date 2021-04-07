@@ -8,9 +8,12 @@ import "./Home.css";
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [Articles, setArticles] = useState([]);
+  // const url = "http://127.0.0.1:8000/articles/"; // for local development server
+  const url = "http://0.0.0.0:8000/articles/";  // for aws EC2 server (deployment)
+
   useEffect(() => {
     if (searchQuery === "") {
-      axios.get("http://127.0.0.1:8000/articles/").then((response) => {
+      axios.get(url).then((response) => {
         setArticles(response.data);
       });
     }
@@ -30,7 +33,7 @@ function Home() {
     setSearchQuery(typedData);
     if (searchQuery !== "") {
       axios
-        .get("http://127.0.0.1:8000/articles/search/?search=" + searchQuery)
+        .get(url+ "search/?search=" + searchQuery)
         .then((res) => setArticles(res.data));
     }
   };
