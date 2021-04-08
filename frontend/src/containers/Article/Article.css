@@ -2,7 +2,7 @@
     width:72%;
     margin-top: 10px;
     margin-left: 15px;
-    background-color: rgb(236, 229, 245);
+    background-color: rgb(247, 208, 136);
 }
 
 
@@ -20,7 +20,7 @@
 }
 
 .articleBody p{
-    background-color:rgba(240, 223, 255, 0.897);
+    background-color: rgb(247, 208, 136);
     /* width:105%; */
     margin-left: 5%;
     margin-right: 5%;
