@@ -80,7 +80,7 @@ ___
 * Token based authentication for `author`s using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
 * Superuser access to me keep an eye on the kind of blogs being posted
 
-####Deployment
+#### Deployment
 This app is created as a single page application in such a way that it can give a smooth and seemless experience to both the reader and the author. **I have deployed it using `apache2` server on an AWS EC2 instance but for some reason if the server is down then you should use pythonanywhere link which will be up almost always.**
 ___
 
