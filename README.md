@@ -1,5 +1,8 @@
 # darkViolet Web Application
+
 ![Alt text](brand-name.png)
+
+
 _A "single-page-web-application" platform to share your ideas, views and interesting topics by writing articles built to provide seemless experience using React.js and backend using Django framework._
 
 
@@ -7,6 +10,7 @@ _A "single-page-web-application" platform to share your ideas, views and interes
 * [Introduction](#introduction)
 * [Functionalities](#functionalities)
 * [Technical Details](#technical-details)
+* [Deployment](#deployment)
 * [Visit the web app](#visit-the-web-app)
 * [Contact developer](#contact-developer)
 
@@ -16,38 +20,46 @@ ___
 
 ### Functionalities
 * Author authentication system(JWT based)
+
     ![Alt text](login.png)
 
 * Article Listing
+
     ![Alt text](article-list.png)
 
 * Fully functional Article Searching based upon the topic
+
     ![Alt text](search-bar.png)
 
 * Write New Article
+
     ![Alt text](article-new.png)
 
 
 * Author's articles page
-    ![Alt text](article-detail.png)
+
+    ![Alt text](my-articles.png)
 
 
 * Edit or delete the existing articles
+
     ![Alt text](article-edit.png)
 
 
 * Article display page using crisp colours to help reading smooth.
+
     ![Alt text](article-detail.png)
 
 * Quickly open a new article suggested
+
     ![Alt text](sidebar.png)
 
 * Proper alert system based upon status of the application
-    * On logout
+
     ![Alt text](smart-alerts.png)
 
 * Validating data input right at the frontend
-    * On Invalid data input
+
     ![Alt text](alert-register.png)
 ___
 
@@ -68,7 +80,8 @@ ___
 * Token based authentication for `author`s using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
 * Superuser access to me keep an eye on the kind of blogs being posted
 
-This app is created as a single page application in such a way that it can give a smooth and seemless experience to both the reader and the author. **I had deployed it using `apache2` server on an AWS EC2 instance but due to finanical reasons I have also deployed it using pythonanywhere on web.**
+####Deployment
+This app is created as a single page application in such a way that it can give a smooth and seemless experience to both the reader and the author. **I have deployed it using `apache2` server on an AWS EC2 instance but for some reason if the server is down then you should use pythonanywhere link which will be up almost always.**
 ___
 
 ### Visit the web app
